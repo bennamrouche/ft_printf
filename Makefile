@@ -6,14 +6,14 @@
 #    By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 11:19:07 by ebennamr          #+#    #+#              #
-#    Updated: 2022/10/31 19:42:58 by ebennamr         ###   ########.fr        #
+#    Updated: 2022/11/04 16:21:36 by ebennamr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libftprintf.a
 
 
-CC := cc
+CC := gcc
 FLAGS := -Wall -Wextra -Werror
 SRC := ft_printf.c\
 		checkformat.c\
@@ -21,9 +21,18 @@ SRC := ft_printf.c\
 		lib/ft_putchar.c\
 		lib/ft_strchr.c\
 		lib/ft_putstr.c\
-		lib/ft_strlen.c
+		lib/ft_strlen.c\
+		lib/ft_putnbr.c\
+		lib/ft_printhex.c\
+		lib/printhex_perfix.c\
+		lib/ft_putuns_nbr.c\
+		bonus/checkformat_bonus.c\
+		bonus/hashflag.c\
+		bonus/spaceflag.c\
+		bonus/plusflag.c
 
-INCLUDE := ft_print.h lib/helper.h
+
+INCLUDE := ft_print.h lib/helper.h bonus/bonus.h
 
 OBJ:= $(SRC:.c=.o)
 

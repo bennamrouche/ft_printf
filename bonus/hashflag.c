@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   hashflag.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:40:30 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 15:03:48 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/11/02 16:08:00 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/04 18:31:17 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper.h"
+#include "bonus.h"
 
-char	*ft_strchr( char *s, int x)
+void	hashflag(va_list *list, char *format, int *index, int *len)
 {
-	while (*s)
+	while (format[*index] == '#')
+		*index += 1;
+	if (format[*index] == 'x' || format[*index] == 'X')
 	{
-		if (*s == (char)x)
-			return ((char *)s);
-		s++;
+		*index += 1;
+		printhex_perfix(va_arg(*list, unsigned int),
+			index, len, format[*index - 1]);
 	}
-	if (x == '\0')
-		return ((char *)s);
-	return (0);
+	else
+		checkformat_bonus(list, format, index, len);
 }

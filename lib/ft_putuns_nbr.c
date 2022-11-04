@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putuns_nbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:40:30 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 15:03:48 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/11/01 13:40:29 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/04 11:41:37 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helper.h"
 
-char	*ft_strchr( char *s, int x)
+void	ft_putuns_nbr(unsigned int num, int *index, int *len)
 {
-	while (*s)
+	int	fake;
+
+	fake = 0;
+	if (num > 9)
 	{
-		if (*s == (char)x)
-			return ((char *)s);
-		s++;
+		ft_putuns_nbr(num / 10, &fake, len);
+		ft_putchar(num % 10 + '0', &fake, len);
 	}
-	if (x == '\0')
-		return ((char *)s);
-	return (0);
+	else
+		ft_putchar(num + '0', &fake, len);
 }

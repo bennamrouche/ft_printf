@@ -6,14 +6,19 @@
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:07:45 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/10/31 19:47:48 by ebennamr         ###   ########.fr       */
+/*   Updated: 2022/11/04 18:52:21 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
-int	main ()
+int	main (void)
 {
-	int x = ft_printf("mahdi");
-	printf("--->%d",x);
+
+   int p =1000;
+   int x = ft_printf("f:%x",-1000);
+   write(1, "\n", 1);
+   int y = printf("s:%x", -1000);
+   printf("\n ft :%d  sys: %u", x, y);
 }

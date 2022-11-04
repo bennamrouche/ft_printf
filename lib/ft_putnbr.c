@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:40:30 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 15:03:48 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/11/01 11:01:14 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/04 16:20:40 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helper.h"
 
-char	*ft_strchr( char *s, int x)
+void	ft_putnbr(int num, int *index, int *len)
 {
-	while (*s)
+	int	fake;
+
+	fake = 0;
+	if (num == -2147483648)
 	{
-		if (*s == (char)x)
-			return ((char *)s);
-		s++;
+		ft_putstr("-2147483648", &fake, len);
+		return ;
 	}
-	if (x == '\0')
-		return ((char *)s);
-	return (0);
+	if (num < 0)
+	{
+		ft_putchar('-', &fake, len);
+		ft_putnbr(-num, &fake, len);
+	}
+	else if (num > 9)
+	{
+		ft_putnbr(num / 10, &fake, len);
+		ft_putchar(num % 10 + '0', &fake, len);
+	}
+	else
+		ft_putchar(num + '0', &fake, len);
 }

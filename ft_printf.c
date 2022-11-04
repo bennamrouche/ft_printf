@@ -6,7 +6,7 @@
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:14:24 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/10/31 19:46:53 by ebennamr         ###   ########.fr       */
+/*   Updated: 2022/11/04 11:27:54 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	ft_printf(const char *format, ...)
 	while (format[index])
 	{
 		if (format[index] == '%')
-			checkformat(&list,(char *)format,&index,&len);
+		{
+			index++;
+			checkformat(&list, (char *)format, &index, &len);
+		}
 		else
-			ft_putchar(format[index], &len, &index);
-	index++;
+			ft_putchar(format[index], &index, &len);
 	}
- return (len);
+	return (len);
 }

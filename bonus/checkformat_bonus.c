@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   checkformat_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:40:30 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 15:03:48 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/10/31 17:32:02 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/04 18:19:30 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper.h"
+#include "bonus.h"
 
-char	*ft_strchr( char *s, int x)
+void	checkformat_bonus(va_list *list, char *format, int *index, int *len)
 {
-	while (*s)
+	if (!format[*index])
+		return ;
+	if (ft_strchr("cspdiuxX", format[*index]) != NULL)
 	{
-		if (*s == (char)x)
-			return ((char *)s);
-		s++;
+		simpleformat(list, format, index, len);
 	}
-	if (x == '\0')
-		return ((char *)s);
-	return (0);
+	else
+		ft_putchar(format[*index], len, index);
 }

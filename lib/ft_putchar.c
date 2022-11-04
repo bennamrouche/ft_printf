@@ -6,13 +6,13 @@
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:54:01 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/10/31 19:45:44 by ebennamr         ###   ########.fr       */
+/*   Updated: 2022/11/04 11:38:40 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helper.h"
 
-void	ft_putchar(char c, int *len, int *index)
+void	ft_putchar(char c, int *index, int *len)
 {
 	*len += write(1, &c, 1);
 	*index = *index + 1;

@@ -6,7 +6,7 @@
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 18:16:23 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/10/31 19:45:16 by ebennamr         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:04:08 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include "./lib/helper.h"
+# include "./bonus/bonus.h"
 # include <stdio.h>//---------------
 # include <unistd.h>
 

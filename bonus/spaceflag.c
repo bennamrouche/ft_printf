@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   spaceflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:40:30 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 15:03:48 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/11/04 14:07:39 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/04 16:41:28 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper.h"
+#include "bonus.h"
 
-char	*ft_strchr( char *s, int x)
+void	spaceflag(va_list *list, char *format, int *index, int *len)
 {
-	while (*s)
+	int	num;
+	int	fake;
+
+	fake = 0;
+	while (format[*index] == ' ')
+		*index += 1;
+	if (format[*index] == 'i' || format[*index] == 'd')
 	{
-		if (*s == (char)x)
-			return ((char *)s);
-		s++;
+		num = va_arg(*list, int);
+			*index += 1;
+		if (num >= 0)
+			ft_putchar(' ', &fake, len);
+		ft_putnbr(num, index, len);
 	}
-	if (x == '\0')
-		return ((char *)s);
-	return (0);
+	else
+		checkformat_bonus(list, format, index, len);
 }
