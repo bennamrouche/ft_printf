@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashflag.c                                         :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 16:08:00 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 18:31:17 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/10/31 17:14:24 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/05 15:31:59 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus.h"
+#include "../bonus/ft_printf_bonus.h"
 
-void	hashflag(va_list *list, char *format, int *index, int *len)
+int	ft_printf(const char *format, ...)
 {
-	while (format[*index] == '#')
-		*index += 1;
-	if (format[*index] == 'x' || format[*index] == 'X')
+	va_list	list;
+	int		index;
+	int		len;
+
+	len = 0;
+	index = 0;
+	if (!format)
+		return (-1);
+	va_start(list, format);
+	while (format[index])
 	{
-		*index += 1;
-		printhex_perfix(va_arg(*list, unsigned int),
-			index, len, format[*index - 1]);
+		if (format[index] == '%')
+		{
+			index++;
+			checkformat_bonus(&list, (char *)format, &index, &len);
+		}
+		else
+			ft_putchar(format[index], &index, &len);
 	}
-	else
-		checkformat_bonus(list, format, index, len);
+	return (len);
 }

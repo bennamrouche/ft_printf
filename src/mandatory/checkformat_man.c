@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checkformat_man.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:07:45 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 18:52:21 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/10/31 17:32:02 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/05 13:04:38 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <limits.h>
 
-int	main (void)
+void	checkformat_man(va_list *list, char *format, int *index, int *len)
 {
-
-   int p =1000;
-   int x = ft_printf("f:%x",-1000);
-   write(1, "\n", 1);
-   int y = printf("s:%x", -1000);
-   printf("\n ft :%d  sys: %u", x, y);
+	if (!format[*index])
+		return ;
+	if (ft_strchr("cspdiuxX", format[*index]) != NULL)
+		simpleformat(list, format, index, len);
+	else
+		ft_putchar(format[*index], index, len);
 }

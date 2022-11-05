@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putuns_nbr.c                                    :+:      :+:    :+:   */
+/*   spaceflag_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 13:40:29 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 11:41:37 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/11/04 14:07:39 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/05 14:55:43 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper.h"
+#include "../bonus/ft_printf_bonus.h"
 
-void	ft_putuns_nbr(unsigned int num, int *index, int *len)
+void	spaceflag_bonus(va_list *list, char *format, int *index, int *len)
 {
+	int	num;
 	int	fake;
 
 	fake = 0;
-	if (num > 9)
+	while (format[*index] == ' ')
+		*index += 1;
+	if (format[*index] == 'i' || format[*index] == 'd')
 	{
-		ft_putuns_nbr(num / 10, &fake, len);
-		ft_putchar(num % 10 + '0', &fake, len);
+		num = va_arg(*list, int);
+			*index += 1;
+		if (num >= 0)
+			ft_putchar(' ', &fake, len);
+		ft_putnbr(num, index, len);
 	}
 	else
-		ft_putchar(num + '0', &fake, len);
+		checkafter_bonus(list, format, index, len);
 }

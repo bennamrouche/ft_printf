@@ -6,7 +6,7 @@
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 13:02:24 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 18:52:05 by ebennamr         ###   ########.fr       */
+/*   Updated: 2022/11/05 13:57:43 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_printhex(unsigned long num, int *index, int *len, char flag)
 	int		fake;
 	char	*hex;
 
-	fake = 0;
+	fake = *index;
 	if (flag == 'x' || flag == 'p')
 		hex = "0123456789abcdef";
 	else

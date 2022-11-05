@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plusflag.c                                         :+:      :+:    :+:   */
+/*   plusflag_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:14:10 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 18:47:03 by ebennamr         ###   ########.fr       */
+/*   Updated: 2022/11/05 14:55:39 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus.h"
+#include "../bonus/ft_printf_bonus.h"
 
-void	plusflag(va_list *list, char *format, int *index, int *len)
+void	plusflag_bonus(va_list *list, char *format, int *index, int *len)
 {
 	int	num;
 	int	fake;
@@ -34,5 +34,5 @@ void	plusflag(va_list *list, char *format, int *index, int *len)
 		ft_putuns_nbr(va_arg(*list, unsigned int), index, len);
 	}
 	else
-		checkformat_bonus(list, format, index, len);
+		checkafter_bonus(list, format, index, len);
 }

@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 16:54:01 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 11:38:40 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/10/30 18:16:23 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/05 15:12:00 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include "../lib/helper.h"
+# include <unistd.h>
 
-void	ft_putchar(char c, int *index, int *len)
-{
-	*len += write(1, &c, 1);
-	*index = *index + 1;
-}
+int		ft_printf(const char *format, ...);
+void	checkformat_man(va_list *list, char *format, int *index, int *len);
+void	simpleformat(va_list *list, char *format, int *index, int *len);
+#endif

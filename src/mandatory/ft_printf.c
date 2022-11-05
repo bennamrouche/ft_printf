@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printhex_perfix.c                                  :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 13:29:53 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 17:17:14 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/10/31 17:14:24 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/05 13:04:19 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helper.h"
+#include "ft_printf.h"
 
-void	printhex_perfix(unsigned long num, int *index, int *len, char flag)
+int	ft_printf(const char *format, ...)
 {
-	int	fake;
+	va_list	list;
+	int		index;
+	int		len;
 
-	fake = 0;
-	if (flag == 'X')
-		ft_putstr("0X", &fake, len);
-	else
-		ft_putstr("0x", &fake, len);
-	ft_printhex(num, index, len, flag);
+	len = 0;
+	index = 0;
+	if (!format)
+		return (-1);
+	va_start(list, format);
+	while (format[index])
+	{
+		if (format[index] == '%')
+		{
+			index++;
+			checkformat_man(&list, (char *)format, &index, &len);
+		}
+		else
+			ft_putchar(format[index], &index, &len);
+	}
+	return (len);
 }

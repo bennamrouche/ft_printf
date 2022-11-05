@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:14:24 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 11:27:54 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/10/31 16:54:01 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/05 13:53:10 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "helper.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_putchar(char c, int *index, int *len)
 {
-	va_list	list;
-	int		index;
-	int		len;
-
-	len = 0;
-	index = 0;
-	if (!format)
-		return (-1);
-	va_start(list, format);
-	while (format[index])
-	{
-		if (format[index] == '%')
-		{
-			index++;
-			checkformat(&list, (char *)format, &index, &len);
-		}
-		else
-			ft_putchar(format[index], &index, &len);
-	}
-	return (len);
+	*len += write(1, &c, 1);
+	*index = *index + 1;
 }

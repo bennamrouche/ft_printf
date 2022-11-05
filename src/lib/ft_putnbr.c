@@ -6,7 +6,7 @@
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:01:14 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 16:20:40 by ebennamr         ###   ########.fr       */
+/*   Updated: 2022/11/05 13:57:25 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr(int num, int *index, int *len)
 {
 	int	fake;
 
-	fake = 0;
+	fake = *index;
 	if (num == -2147483648)
 	{
 		ft_putstr("-2147483648", &fake, len);

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spaceflag.c                                        :+:      :+:    :+:   */
+/*   hashflag_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennamr <ebennamr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 14:07:39 by ebennamr          #+#    #+#             */
-/*   Updated: 2022/11/04 16:41:28 by ebennamr         ###   ########.fr       */
+/*   Created: 2022/11/02 16:08:00 by ebennamr          #+#    #+#             */
+/*   Updated: 2022/11/05 14:55:35 by ebennamr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus.h"
+#include "../bonus/ft_printf_bonus.h"
 
-void	spaceflag(va_list *list, char *format, int *index, int *len)
+void	hashflag_bonus(va_list *list, char *format, int *index, int *len)
 {
-	int	num;
-	int	fake;
-
-	fake = 0;
-	while (format[*index] == ' ')
+	while (format[*index] == '#')
 		*index += 1;
-	if (format[*index] == 'i' || format[*index] == 'd')
+	if (format[*index] == 'x' || format[*index] == 'X')
 	{
-		num = va_arg(*list, int);
-			*index += 1;
-		if (num >= 0)
-			ft_putchar(' ', &fake, len);
-		ft_putnbr(num, index, len);
+		*index += 1;
+		printhex_perfix(va_arg(*list, unsigned int),
+			index, len, format[*index - 1]);
 	}
 	else
-		checkformat_bonus(list, format, index, len);
+		checkafter_bonus(list, format, index, len);
 }
